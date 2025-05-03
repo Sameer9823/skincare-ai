@@ -40,7 +40,7 @@ export default function Navigation() {
           </Link>
         </div>
 
-        {/* Desktop navigation */}
+       
         <nav className="hidden md:flex items-center gap-6">
           {routes.map((route) => (
             <Link
