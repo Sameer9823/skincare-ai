@@ -1,27 +1,30 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const routes = [
     { href: "/", label: "Home" },
     { href: "/diagnosis", label: "Diagnosis" },
     { href: "/history", label: "History" },
-  ]
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-gray-950 border-gray-200 dark:border-gray-800">
       <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2 text-xl font-semibold">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-xl font-semibold"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -36,18 +39,21 @@ export default function Navigation() {
               <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />
               <circle cx="20" cy="10" r="2" />
             </svg>
-            <span className="hidden sm:inline-block text-gray-900 dark:text-white">SkinCare  AI</span>
+            <span className="hidden sm:inline-block text-gray-900 dark:text-white">
+              SkinCare AI
+            </span>
           </Link>
         </div>
 
-       
         <nav className="hidden md:flex items-center gap-6">
           {routes.map((route) => (
             <Link
               key={route.href}
               href={route.href}
               className={`text-sm font-medium transition-colors hover:text-gray-900 dark:hover:text-white ${
-                pathname === route.href ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-400"
+                pathname === route.href
+                  ? "text-gray-900 dark:text-white"
+                  : "text-gray-500 dark:text-gray-400"
               }`}
             >
               {route.label}
@@ -66,8 +72,12 @@ export default function Navigation() {
             </Button>
           </Link>
 
-         
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
@@ -82,7 +92,9 @@ export default function Navigation() {
                 key={route.href}
                 href={route.href}
                 className={`block py-2 text-base font-medium transition-colors hover:text-gray-900 dark:hover:text-white ${
-                  pathname === route.href ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-400"
+                  pathname === route.href
+                    ? "text-gray-900 dark:text-white"
+                    : "text-gray-500 dark:text-gray-400"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -103,5 +115,5 @@ export default function Navigation() {
         </div>
       )}
     </header>
-  )
+  );
 }
