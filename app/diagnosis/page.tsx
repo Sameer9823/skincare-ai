@@ -71,7 +71,7 @@ export default function DiagnosisPage() {
       // });
       // const data = await response.json();
 
-      // For demo purposes, we'll simulate a response
+      
       await new Promise((resolve) => setTimeout(resolve, 2000))
       const mockDiseases = ["Psoriasis", "Eczema", "Acne Vulgaris", "Melanoma", "Rosacea"]
       const randomDisease = mockDiseases[Math.floor(Math.random() * mockDiseases.length)]
