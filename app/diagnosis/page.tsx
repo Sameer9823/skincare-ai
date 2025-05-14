@@ -73,9 +73,9 @@ export default function DiagnosisPage() {
 
       
       await new Promise((resolve) => setTimeout(resolve, 2000))
-      const mockDiseases = ["Psoriasis", "Eczema", "Acne Vulgaris", "Melanoma", "Rosacea"]
-      const randomDisease = mockDiseases[Math.floor(Math.random() * mockDiseases.length)]
-      const randomConfidence = 70 + Math.floor(Math.random() * 25)
+      const mockDiseases = ["Psoriasis", "Eczema", "Acne Vulgaris", "Melanoma", "Rosacea", "No Skin Disease Detected"]
+      const randomConfidence = Math.floor(Math.random() * 100);
+      const randomDisease = randomConfidence < 50 ? "No Skin Disease Detected" : mockDiseases[Math.floor(Math.random() * (mockDiseases.length - 1))];
 
       setPredictionResult({
         disease: randomDisease,
