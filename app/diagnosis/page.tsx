@@ -83,7 +83,6 @@ export default function DiagnosisPage() {
         imageUrl: selectedImage,
       })
 
-      // Also store in history
       const historyItem = {
         id: Date.now().toString(),
         disease: randomDisease,
