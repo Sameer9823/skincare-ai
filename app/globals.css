@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * SkinCare AI design system — a clean, professional light theme with
+ * confident, colorful accents. Dark mode has been removed by design so the
+ * product always presents the same polished, high-contrast experience.
+ */
+@layer base {
+  :root {
+    /* Core surface palette */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 12%;
+
+    /* Primary brand — confident teal */
+    --primary: 168 76% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary — soft violet tint used for supporting surfaces */
+    --secondary: 258 60% 96%;
+    --secondary-foreground: 258 40% 28%;
+
+    --muted: 210 30% 95%;
+    --muted-foreground: 215 16% 43%;
+
+    --accent: 168 60% 94%;
+    --accent-foreground: 168 76% 24%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 25% 89%;
+    --input: 214 25% 89%;
+    --ring: 168 76% 32%;
+
+    /* Extra design tokens */
+    --cream: 39 60% 96%;
+    --pale-green: 150 45% 95%;
+    --disclaimer-bg: 24 96% 95%;
+    --disclaimer-foreground: 15 75% 40%;
+
+    /* Colorful accent family — used for icon badges, gradients & highlights
+       so the UI feels vivid without sacrificing a professional layout. */
+    --brand-teal: 168 76% 32%;
+    --brand-teal-soft: 168 65% 94%;
+    --brand-blue: 214 90% 52%;
+    --brand-blue-soft: 214 90% 95%;
+    --brand-violet: 258 68% 58%;
+    --brand-violet-soft: 258 70% 96%;
+    --brand-pink: 330 78% 56%;
+    --brand-pink-soft: 330 80% 96%;
+    --brand-amber: 32 92% 50%;
+    --brand-amber-soft: 32 95% 94%;
+    --brand-coral: 8 78% 56%;
+    --brand-coral-soft: 8 90% 95%;
+
+    --radius: 1rem;
+
+    --shadow-color: 222 47% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  /* Hairline dotted leader line used to connect a marker to its label,
+     echoing dermatology body-map annotations. */
+  .leader-line {
+    background-image: linear-gradient(to right, hsl(var(--border)) 50%, transparent 50%);
+    background-size: 6px 1px;
+    background-repeat: repeat-x;
+  }
+
+  /* Soft, colorful page backdrop used behind hero / CTA sections */
+  .surface-teal {
+    background: linear-gradient(135deg, hsl(168 55% 95%) 0%, hsl(190 60% 96%) 100%);
+  }
+  .surface-violet {
+    background: linear-gradient(135deg, hsl(258 65% 97%) 0%, hsl(330 65% 97%) 100%);
+  }
+  .surface-sunrise {
+    background: linear-gradient(135deg, hsl(32 90% 95%) 0%, hsl(8 85% 95%) 100%);
+  }
+
+  /* Rounded icon badges in five brand colors — cycle through these for a
+     lively, multicolor feel across feature grids while staying on-brand. */
+  .icon-badge {
+    @apply flex items-center justify-center rounded-2xl shadow-sm ring-1 ring-inset;
+  }
+  .icon-badge-teal {
+    background: linear-gradient(135deg, hsl(var(--brand-teal)) 0%, hsl(178 70% 40%) 100%);
+    @apply text-white ring-white/20 shadow-[0_8px_20px_-8px_hsl(168_76%_32%/0.55)];
+  }
+  .icon-badge-blue {
+    background: linear-gradient(135deg, hsl(var(--brand-blue)) 0%, hsl(198 90% 55%) 100%);
+    @apply text-white ring-white/20 shadow-[0_8px_20px_-8px_hsl(214_90%_52%/0.55)];
+  }
+  .icon-badge-violet {
+    background: linear-gradient(135deg, hsl(var(--brand-violet)) 0%, hsl(275 70% 62%) 100%);
+    @apply text-white ring-white/20 shadow-[0_8px_20px_-8px_hsl(258_68%_58%/0.55)];
+  }
+  .icon-badge-pink {
+    background: linear-gradient(135deg, hsl(var(--brand-pink)) 0%, hsl(346 82% 60%) 100%);
+    @apply text-white ring-white/20 shadow-[0_8px_20px_-8px_hsl(330_78%_56%/0.55)];
+  }
+  .icon-badge-amber {
+    background: linear-gradient(135deg, hsl(var(--brand-amber)) 0%, hsl(45 95% 52%) 100%);
+    @apply text-white ring-white/20 shadow-[0_8px_20px_-8px_hsl(32_92%_50%/0.55)];
+  }
+  .icon-badge-coral {
+    background: linear-gradient(135deg, hsl(var(--brand-coral)) 0%, hsl(350 80% 60%) 100%);
+    @apply text-white ring-white/20 shadow-[0_8px_20px_-8px_hsl(8_78%_56%/0.55)];
+  }
+
+  /* Elevated, colorful card treatment for feature grids */
+  .feature-card {
+    @apply relative rounded-2xl border border-border/70 bg-card shadow-[0_2px_10px_-4px_rgba(15,23,42,0.08)] transition-all duration-300;
+  }
+  .feature-card:hover {
+    @apply -translate-y-1 shadow-[0_18px_30px_-12px_rgba(15,23,42,0.18)] border-transparent;
+  }
+
+  /* Signature gradient CTA — teal into blue, used for primary buttons that
+     should stand out most (start analysis, hero actions). */
+  .btn-gradient {
+    background: linear-gradient(135deg, hsl(var(--brand-teal)) 0%, hsl(var(--brand-blue)) 100%);
+    @apply text-white shadow-[0_10px_24px_-10px_hsl(214_90%_52%/0.55)] transition-transform duration-200 hover:brightness-110 hover:shadow-[0_14px_28px_-10px_hsl(214_90%_52%/0.6)];
+  }
+
+  /* Status pill helpers for working / attention-needed feature badges */
+  .status-pill-ok {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-200;
+  }
+  .status-pill-warn {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-200;
+  }
+  .status-pill-error {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-rose-50 px-2.5 py-1 text-xs font-medium text-rose-700 ring-1 ring-inset ring-rose-200;
+  }
+}
