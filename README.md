@@ -1,4 +1,4 @@
-# SkinCare AI
+# SkinCare AI 
 
 An AI-assisted skin analysis app. Upload a photo (or use your webcam), get a
 non-clinical AI assessment powered by OpenAI's vision models, track your
